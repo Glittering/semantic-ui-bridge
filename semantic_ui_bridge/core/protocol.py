@@ -6,8 +6,8 @@ import logging
 import time
 from typing import Any, Callable, Dict, List, Optional
 
-from src.core.models import Action, ActionResult, UIElement, UITree, UIRole
-from src.core.errors import SUBTimeoutError
+from semantic_ui_bridge.core.models import Action, ActionResult, UIElement, UITree, UIRole
+from semantic_ui_bridge.core.errors import SUBTimeoutError
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ class SemanticUIBridge:
     def _get_normalizer(self):
         if self._normalizer is None:
             # 延迟 import，避免模型层未 ready 时爆发
-            from src.core.normalizer import Normalizer
+            from semantic_ui_bridge.core.normalizer import Normalizer
 
             self._normalizer = Normalizer()
         return self._normalizer

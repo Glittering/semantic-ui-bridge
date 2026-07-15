@@ -3,8 +3,8 @@
 这些测试在CI无浏览器环境时可以skip。"""
 
 import pytest
-from src.core.protocol import SemanticUIBridge
-from src.adapters.playwright_adapter import PlaywrightAdapter
+from semantic_ui_bridge.core.protocol import SemanticUIBridge
+from semantic_ui_bridge.adapters.playwright_adapter import PlaywrightAdapter
 
 
 @pytest.fixture
@@ -44,14 +44,14 @@ class TestGitHub:
     @pytest.mark.slow
     async def test_find_searchbox(self, bridge_github):
         """I-002: 搜索GitHub上的textbox"""
-        from src.core.models import UIRole
+        from semantic_ui_bridge.core.models import UIRole
         textboxes = await bridge_github.find(role=UIRole.TEXTBOX)
         assert len(textboxes) >= 1
 
     @pytest.mark.slow
     async def test_type_in_search(self, bridge_github):
         """I-003: act(type)填textbox"""
-        from src.core.models import UIRole, Action
+        from semantic_ui_bridge.core.models import UIRole, Action
         textboxes = await bridge_github.find(role=UIRole.TEXTBOX)
         if not textboxes:
             pytest.skip("No found textbox")
@@ -68,7 +68,7 @@ class TestHackerNews:
     @pytest.mark.slow
     async def test_hn_semantic(self, bridge_hn):
         """I-005: HN链接角色正确"""
-        from src.core.models import UIRole
+        from semantic_ui_bridge.core.models import UIRole
         tree = await bridge_hn.get_tree()
         links = _find_by_role(tree.root, UIRole.BUTTON)  # links映射成button
         # HN有30条新闻链接
@@ -77,7 +77,7 @@ class TestHackerNews:
     @pytest.mark.slow
     async def test_hn_has_text(self, bridge_hn):
         """I-EXTRA: HN含文本元素"""
-        from src.core.models import UIRole
+        from semantic_ui_bridge.core.models import UIRole
         tree = await bridge_hn.get_tree()
         texts = _find_by_role(tree.root, UIRole.TEXT)
         assert len(texts) >= 5

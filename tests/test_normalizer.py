@@ -3,8 +3,8 @@
 纯单元测试——mock原始控件树，不依赖真实浏览器。"""
 
 import pytest
-from src.core.models import UIRole, UIElement
-from src.core.normalizer import Normalizer
+from semantic_ui_bridge.core.models import UIRole, UIElement
+from semantic_ui_bridge.core.normalizer import Normalizer
 
 
 # ── helper to make raw platform-like element dicts ──

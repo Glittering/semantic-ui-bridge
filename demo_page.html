@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>无障碍测试页面</title></head>
+<body>
+  <h1>SUB 语义桥测试</h1>
+  <p>这是一个测试页面</p>
+  <label>搜索: <input type="text" id="searchbox" placeholder="输入搜索词"></label>
+  <br><br>
+  <button id="btn1">点击我</button>
+  <button id="btn2">提交</button>
+  <br><br>
+  <select id="sel1">
+    <option value="a">选项A</option>
+    <option value="b">选项B</option>
+  </select>
+  <br><br>
+  <input type="checkbox" id="cb1"> 同意条款
+  <br><br>
+  <div id="result" aria-live="polite"></div>
+
+  <script>
+    document.getElementById('btn1').addEventListener('click', () => {
+      document.getElementById('result').textContent = '按钮1被点击了!';
+    });
+    document.getElementById('btn2').addEventListener('click', () => {
+      document.getElementById('result').textContent = '表单已提交!';
+    });
+    document.getElementById('searchbox').addEventListener('input', (e) => {
+      document.getElementById('result').textContent = '搜索: ' + e.target.value;
+    });
+  </script>
+</body>
+</html>

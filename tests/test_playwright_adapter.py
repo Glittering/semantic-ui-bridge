@@ -3,7 +3,7 @@
 集成测试——需要Playwright浏览器。"""
 
 import pytest
-from src.adapters.playwright_adapter import PlaywrightAdapter
+from semantic_ui_bridge.adapters.playwright_adapter import PlaywrightAdapter
 
 
 @pytest.fixture

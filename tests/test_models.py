@@ -6,7 +6,7 @@ import json
 import pytest
 from pydantic import ValidationError
 
-from src.core.models import UIRole, UIElement, UITree, Action, ActionResult
+from semantic_ui_bridge.core.models import UIRole, UIElement, UITree, Action, ActionResult
 
 
 class TestUIRole:

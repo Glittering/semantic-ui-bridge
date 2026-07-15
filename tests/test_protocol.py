@@ -6,10 +6,10 @@ import pytest
 import asyncio
 
 # 这些import在源码实现后才生效；测试先写，先验证失败
-from src.core.models import UIRole, UIElement, UITree, Action
-from src.core.errors import SUBTimeoutError
-from src.core.protocol import SemanticUIBridge
-from src.adapters.playwright_adapter import PlaywrightAdapter
+from semantic_ui_bridge.core.models import UIRole, UIElement, UITree, Action
+from semantic_ui_bridge.core.errors import SUBTimeoutError
+from semantic_ui_bridge.core.protocol import SemanticUIBridge
+from semantic_ui_bridge.adapters.playwright_adapter import PlaywrightAdapter
 
 
 @pytest.fixture

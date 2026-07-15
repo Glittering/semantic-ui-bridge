@@ -21,6 +21,40 @@ Agent (LLM)
     └── target="app名" ─────► macOS AX Adapter
 ```
 
+## 30 秒演示
+
+```
+>>> SUB.list_apps()
+    13 GUI apps: Safari, 备忘录, 终端, 访达, 活动监视器, TRAE...
+
+>>> SUB.get_tree("备忘录")
+    Window: iCloud全部 – 52个备忘录
+    Elements: 285
+      [group]  备忘录
+      [dialog] iCloud全部 – 52个备忘录
+      [text]   2026年7月15日 16:08
+      [text]   iCloud全部
+      [text]   52个备忘录
+
+>>> SUB.safari_go("https://www.xinhuanet.com/")
+    Navigation: 新华网_让新闻离你更近          ← 窗口标题确认
+
+>>> SUB.get_web_content("https://www.xinhuanet.com/")
+    348 links extracted
+      • 哈萨克斯坦总统托卡耶夫抵达上海
+      • 美国环孢子虫病例破纪录
+      • 港股15日涨1.4% 收报24681.1点
+
+>>> SUB.ls("~/Documents/trae_projects/", pattern=".py")
+    2026-07-16  2,374B  demo_github.py
+    2026-07-16  3,630B  demo_end_to_end.py
+
+>>> SUB.menu_action("Safari", ["文件", "新建窗口"])
+    expanded: True  ← 菜单成功打开
+
+═══ 0 screenshots, 0 OCR, 0 coordinates. ═══
+```
+
 ## 安装
 
 ```bash

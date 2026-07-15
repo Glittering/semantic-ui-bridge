@@ -9,11 +9,11 @@ from pathlib import Path
 # 确保 src/ 在 sys.path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from src.core.models import UIRole, UIElement, UITree, Action, ActionResult
-from src.core.normalizer import Normalizer
-from src.core.errors import SUBTimeoutError
-from src.adapters.playwright_adapter import PlaywrightAdapter
-from src.core.protocol import SemanticUIBridge
+from semantic_ui_bridge.core.models import UIRole, UIElement, UITree, Action, ActionResult
+from semantic_ui_bridge.core.normalizer import Normalizer
+from semantic_ui_bridge.core.errors import SUBTimeoutError
+from semantic_ui_bridge.adapters.playwright_adapter import PlaywrightAdapter
+from semantic_ui_bridge.core.protocol import SemanticUIBridge
 
 
 async def smoke_test():

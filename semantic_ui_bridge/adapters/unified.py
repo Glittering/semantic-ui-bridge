@@ -2,7 +2,7 @@
 一个入口，自动选择AX（桌面原生app）或Playwright（网页）路径。
 
 用法：
-    from src.adapters.unified import SUB
+    from semantic_ui_bridge.adapters.unified import SUB
     tree = SUB.get_tree("Safari")          # 桌面app
     tree = SUB.get_tree("http://news.cn")  # 网页URL
     SUB.click("Safari", label="重新载入")
@@ -29,7 +29,7 @@ class UnifiedSUB:
 
     def _get_ax(self):
         if self._ax is None:
-            from src.adapters.macos_ax_adapter import get_app_tree, act_on_label, _list_apps
+            from semantic_ui_bridge.adapters.macos_ax_adapter import get_app_tree, act_on_label, _list_apps
             self._ax = (get_app_tree, act_on_label, _list_apps)
         return self._ax
 
@@ -42,8 +42,8 @@ class UnifiedSUB:
 
     async def _get_pw(self):
         if self._pw_bridge is None:
-            from src.core.protocol import SemanticUIBridge
-            from src.adapters.playwright_adapter import PlaywrightAdapter
+            from semantic_ui_bridge.core.protocol import SemanticUIBridge
+            from semantic_ui_bridge.adapters.playwright_adapter import PlaywrightAdapter
             adapter = PlaywrightAdapter()
             self._pw_bridge = SemanticUIBridge(adapter)
         return self._pw_bridge
@@ -81,7 +81,7 @@ class UnifiedSUB:
         """target="Safari" → AX click; target="http://..." → Playwright→AX fallback"""
         if self._is_url(target):
             bridge = await self._ensure_pw_connected(target)
-            from src.core.models import UIRole, Action
+            from semantic_ui_bridge.core.models import UIRole, Action
             results = await bridge.find(label_contains=label)
             if not results:
                 return {"success": False, "error": f"No element matching '{label}' in {target}"}
@@ -95,7 +95,7 @@ class UnifiedSUB:
         """target="Safari" → AX setValue; target="http://..." → Playwright fill"""
         if self._is_url(target):
             bridge = await self._ensure_pw_connected(target)
-            from src.core.models import UIRole, Action
+            from semantic_ui_bridge.core.models import UIRole, Action
             results = await bridge.find(role=UIRole.TEXTBOX, label_contains=label)
             if not results:
                 results = await bridge.find(label_contains=label)
@@ -176,7 +176,7 @@ class UnifiedSUB:
 
     def safari_go(self, url: str) -> dict:
         """一步Safari导航——自动开窗口+输入URL+回车"""
-        from src.adapters.macos_ax_adapter import safari_navigate
+        from semantic_ui_bridge.adapters.macos_ax_adapter import safari_navigate
         return safari_navigate(url)
 
     async def menu_action(self, app_name: str, menu_path: list[str]) -> dict:

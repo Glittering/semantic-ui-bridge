@@ -4,7 +4,7 @@
 from __future__ import annotations
 from typing import Any
 
-from src.core.models import UIElement, UITree, UIRole
+from semantic_ui_bridge.core.models import UIElement, UITree, UIRole
 
 
 class Normalizer:

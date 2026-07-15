@@ -13,8 +13,8 @@ from playwright.async_api import (
     async_playwright,
 )
 
-from src.adapters.base import BaseAdapter
-from src.core.errors import AdapterError, ElementNotFoundError
+from semantic_ui_bridge.adapters.base import BaseAdapter
+from semantic_ui_bridge.core.errors import AdapterError, ElementNotFoundError
 
 logger = logging.getLogger(__name__)
 

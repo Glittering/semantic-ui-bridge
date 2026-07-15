@@ -1,0 +1,40 @@
+╔══════════════════════════════════════════╗
+║   Semantic UI Bridge — Live Demo        ║
+║   AI controls desktop without pixels    ║
+╚══════════════════════════════════════════╝
+
+>>> SUB.list_apps()
+    12 GUI apps running: Safari浏览器, 备忘录, 终端, 访达, 活动监视器, TRAE CN, Tabbit浏览器, ToDesk...
+
+>>> SUB.get_tree('备忘录')
+    Window: iCloud全部 – 52个备忘录
+    Elements: 42
+      [group] 备忘录
+      [dialog] iCloud全部 – 52个备忘录
+      [text] 2026年7月15日 16:08
+      [text] iCloud全部
+      [text] 52个备忘录
+      [button] Apple
+
+>>> SUB.ls('~/Documents/trae_projects/semantic-ui-bridge/', pattern='.py')
+    2026-07-16 01:38    2374B  demo_github.py
+    2026-07-16 00:19    3630B  demo_end_to_end.py
+    2026-07-16 00:19    2355B  demo_real.py
+    2026-07-16 00:18    1828B  verify.py
+    2026-07-15 13:23     192B  .pytest_cache
+
+>>> SUB.safari_go('https://www.xinhuanet.com/')
+    Navigation: 新闻中心首页_新浪网
+
+>>> SUB.get_web_content('https://www.xinhuanet.com/')
+    348 links extracted
+      • 关于新华社
+      • English
+      • Español
+      • Français
+      • Русский язык
+
+>>> SUB.menu_action('Safari', ['文件'])
+    expanded: True
+
+═══ Demo complete. 0 screenshots, 0 OCR, 0 coordinates. ═══
